@@ -1,4 +1,5 @@
 // Create Token and saving in cookie
+const {COOKIE_EXPIRE} = require('../config/keys')
 
 const sendToken = (user, statusCode, res) => {
   const token = user.getJWTToken();
