@@ -1,11 +1,12 @@
 // npm i express-fileupload cloudinary 
 const app = require("./app");
 const dotenv = require("dotenv");
+const express = require("express");
+const path = require('path');
+const {CLOUDINARY_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET, PORT} = require('./config/keys.js')
 const connectDatabase = require("./config/database")
-const PORT = process.env.PORT || 4000
 const cloudinary = require('cloudinary');
 const cors = require('cors');
-const {CLOUDINARY_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET} = require('./config/keys.js')
 
 const DatauriParser=require("datauri/parser");
 const parser = new DatauriParser();
@@ -24,16 +25,12 @@ app.use(function(req, res, next) {
   next();
 });
 
-if(process.env.NODE_ENV=='production'){
-  const path = require('path')
-
-  app.get('/',(req,res)=>{
-      app.use(express.static(path.resolve(__dirname,'../frontend','build')))
-      res.sendFile(path.resolve(__dirname,'../frontend','build','index.html'))
-  })
-}
-  
+app.use(express.static(path.join(__dirname,"../frontend/build")));
+app.get("*",(req,res) => {
+  res.sendFile(path.resolve(__dirname,"../frontend/build/index.html"));
+})
 dotenv.config({path:"backend/config/keys.js"});
+
 
 // connect to database
 connectDatabase();
