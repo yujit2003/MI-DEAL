@@ -3,6 +3,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, 'config/config.env') });
 
 const app = express();
 const errorMiddleWare = require("./middleware/error")
@@ -14,6 +15,7 @@ app.use(cookieParser());
 //Route Import
 const product = require("./routes/productRoute");
 const user = require("./routes/userRoute");
+require("dotenv").config({ path: "backend/config/config.env" });
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

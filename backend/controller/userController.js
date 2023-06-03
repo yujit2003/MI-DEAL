@@ -17,10 +17,13 @@ exports.registerUser = catchAsyncErrors(async(req,res,next) => {
       folder: "avatars",
       width: 150,
     });
-
-
+    
+    
     const {name, email, password} = req.body;
-    // console.log(myCloud.public_id)
+    console.log(myCloud.public_id)
+    console.log(name);
+    console.log(email);
+    console.log(password);
 
     const user = await User.create({
         name,email, password,
@@ -62,6 +65,7 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
     const user = await User.findOne({email});
+    console.log(password);
 
     const isPasswordMatched = bcrypt.compare(password, user.password);
   // console.log(isMatch);

@@ -1,58 +1,48 @@
-// npm i express-fileupload cloudinary 
 const app = require("./app");
-const dotenv = require("dotenv");
-const express = require("express");
-const path = require('path');
-const {CLOUDINARY_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET, PORT} = require('./config/keys.js')
-const connectDatabase = require("./config/database")
-const cloudinary = require('cloudinary');
-const cors = require('cors');
+const cloudinary = require("cloudinary");
+const connectDatabase = require("./config/database");
 
-const DatauriParser=require("datauri/parser");
-const parser = new DatauriParser();
-
-// Error -> uncaught Exception
+// Handling Uncaught Exception
 process.on("uncaughtException", (err) => {
   console.log(`Error: ${err.message}`);
-  console.log("Closing the server due to uncaught Exception")
+  console.log(`Shutting down the server due to Uncaught Exception`);
   process.exit(1);
-})
+});
 
-app.use(cors({credentials: true, origin: true}));
+app.use(cors({credentials: true, origin: "https://mideal-31841.web.app"}));
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
-  // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  // res.header("Access-Control-Allow-Origin", "https://localhost:3000"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Origin", "https://mideal-31841.web.app"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
 
-app.use(express.static(path.join(__dirname,"../frontend/build")));
-app.get("*",(req,res) => {
-  res.sendFile(path.resolve(__dirname,"../frontend/build/index.html"));
-})
-dotenv.config({path:"backend/config/keys.js"});
+// Config
+if (process.env.NODE_ENV !== "PRODUCTION") {
+  require("dotenv").config({ path: "config/config.env" });
+}
 
+console.log(process.env.JWT_EXPIRE);
 
-// connect to database
+// Connecting to database
 connectDatabase();
 
 cloudinary.config({
-  cloud_name: CLOUDINARY_NAME,
-  api_key: CLOUDINARY_API_KEY,
-  api_secret: CLOUDINARY_API_SECRET,
+  cloud_name: process.env.CLOUDINARY_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-const server = app.listen(PORT, () => {
+const server = app.listen(process.env.PORT, () => {
+  console.log(`Server is working on http://localhost:${process.env.PORT}`);
+});
 
-    console.log(`Server is working on http://localhost:${PORT}`);
+// Unhandled Promise Rejection
+process.on("unhandledRejection", (err) => {
+  console.log(`Error: ${err.message}`);
+  console.log(`Shutting down the server due to Unhandled Promise Rejection`);
+
+  server.close(() => {
+    process.exit(1);
   });
-
-  // unhandled Promise rejection
-
-  process.on("unhandledRejection", (err) => {
-    console.log(`Error ->  ${err.message}`);
-    console.log("Closing the server due to unhandled Rejection")
-  
-    server.close(() => {
-      process.exit(1);
-    })
-  })
+});
