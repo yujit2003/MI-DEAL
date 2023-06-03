@@ -3,9 +3,16 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const path = require('path');
+const cors = require("cors");
+const app = express();
 require('dotenv').config({ path: path.resolve(__dirname, 'config/config.env') });
 
-const app = express();
+app.use(
+    cors({
+      origin: "https://mideall.onrender.com",
+      credentials: true,
+    })
+  );
 const errorMiddleWare = require("./middleware/error")
 
 // MIDDLE WARE for JSON
