@@ -17,7 +17,11 @@ process.on("uncaughtException", (err) => {
 //   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 //   next();
 // });
-app.use(cors())
+app.use(cors({
+  origin: "https://slug-panel.onrender.com",
+  headers: ["Content-Type"],
+  credentials: true,
+}));
 app.options('*',cors())
 
 // app.use(cors({
