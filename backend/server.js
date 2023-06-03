@@ -10,34 +10,15 @@ process.on("uncaughtException", (err) => {
   process.exit(1);
 });
 
-// app.use(cors({credentials: true, origin: "https://mideall.onrender.com/"}));
-// app.use(function(req, res, next) {
-//   // res.header("Access-Control-Allow-Origin", "https://localhost:3000"); // update to match the domain you will make the request from
-//   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   next();
-// });
-app.use(cors({
-  origin: "https://mideall.onrender.com",
-  headers: ["Content-Type"],
-  credentials: true,
-}));
+// Enable CORS
+app.use(
+  cors({
+    origin: "https://mideall.onrender.com",
+    credentials: true,
+  })
+);
 
-// app.use(cors({
-//     allowedHeaders:['authorization','content-type'],
-//     exposedHeaders:['authorization','content-type'],
-//     origin:'*',
-//     methods:['GET,HEAD,PUT,POST,PATCH,DELETE'],
-//     preflightContinue:false
-// }))
-
-app.options((req, res, next) => {
-    res.setHeader("Access-control-Allow-Origin", "*")
-    res.setHeader("Access-control-Allow-Methods","*")
-    res.setHeader("Access-control-Allow-Headers", "*")
-    res.end()
-});
-
+// ...
 
 // Config
 if (process.env.NODE_ENV !== "PRODUCTION") {
@@ -46,7 +27,7 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
 
 console.log(process.env.JWT_EXPIRE);
 
-// Connecting to database
+// Connecting to the database
 connectDatabase();
 
 cloudinary.config({
