@@ -45,7 +45,7 @@ export const login = (email, password) => async (dispatch) => {
 
     const config = { headers: { "Content-Type": "application/json" } };
 
-    const { data } = await axios.post(`/api/v1/login`,{ email, password },config);
+    const { data } = await axios.post(`https://mideal.onrender.com/api/v1/login`,{ email, password },config);
 
     dispatch({ type: LOGIN_SUCCESS, payload: data.user });
   } catch (error) {
@@ -61,7 +61,7 @@ export const register = (userData) => async (dispatch) => {
     
     const config = { headers: { "Content-Type": "multipart/form-data" } };
     
-    const { data } = await axios.post(`/api/v1/registration`, userData, config);
+    const { data } = await axios.post(`https://mideal.onrender.com/api/v1/registration`, userData, config);
 
     dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user });
   } catch (error) {
@@ -77,7 +77,7 @@ export const loadUser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
 
-    const { data } = await axios.get(`/api/v1/me`);
+    const { data } = await axios.get(`https://mideal.onrender.com/api/v1/me`);
 
     dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
   } catch (error) {
@@ -88,7 +88,7 @@ export const loadUser = () => async (dispatch) => {
 // Logout User
 export const logout = () => async (dispatch) => {
   try {
-    await axios.get(`/api/v1/logout`);
+    await axios.get(`https://mideal.onrender.com/api/v1/logout`);
 
     dispatch({ type: LOGOUT_SUCCESS });
   } catch (error) {
