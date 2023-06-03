@@ -10,10 +10,10 @@ process.on("uncaughtException", (err) => {
   process.exit(1);
 });
 
-app.use(cors({credentials: true, origin: "https://mideal-31841.web.app"}));
+app.use(cors({credentials: true, origin: "https://mideall.onrender.com/"}));
 app.use(function(req, res, next) {
   // res.header("Access-Control-Allow-Origin", "https://localhost:3000"); // update to match the domain you will make the request from
-  res.header("Access-Control-Allow-Origin", "https://mideal-31841.web.app"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Origin", "https://mideall.onrender.com/"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
