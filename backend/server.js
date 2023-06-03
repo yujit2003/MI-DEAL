@@ -10,7 +10,7 @@ process.on("uncaughtException", (err) => {
   process.exit(1);
 });
 
-app.use(cors({credentials: true, origin: "*"}));
+// app.use(cors({credentials: true, origin: "*"}));
 app.use(function(req, res, next) {
   // res.header("Access-Control-Allow-Origin", "https://localhost:3000"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
