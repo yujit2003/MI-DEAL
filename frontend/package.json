@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@material-ui/lab": "^4.0.0-alpha.61",
     "@mui/icons-material": "^5.11.0",
     "@mui/lab": "^5.0.0-alpha.121",
-    "@mui/material": "^5.11.7",
+    "@mui/material": "^5.14.0",
     "@mui/styles": "^5.11.2",
+    "@mui/x-data-grid": "^6.10.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -63,5 +64,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://mideal.onrender.com/"
+  "proxy": "https://mideall.onrender.com/"
 }

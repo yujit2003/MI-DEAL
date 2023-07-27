@@ -14,7 +14,6 @@ import { useSelector } from 'react-redux'
 import UserOptions from "./component/layout/Header/UserOptions.js";
 import { useEffect } from 'react'
 import Profile from './component/User/Profile.js' 
-import Dashboard from "./component/Admin/Dashboard.js";
 import Cart from './component/Cart/Cart.js'
 // npm i react-js-pagination@3.0.3
 
@@ -42,14 +41,12 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/product/:id' element={<ProductDetail />} />
+        <Route path="/account" element={ <Profile />} />
         <Route path="/products" element={ <Products />} />
         <Route path="/products/:keyword" element={ <Products />} />
         <Route path="/search" element={ <Search />} />
         <Route path="/login" element={ <LoginSignUp />} />
-          <Route path="/account" element={ <Profile />} />
         <Route path="/cart" element={ <Cart/>} />
-        <Route path="/cart" element={ <Cart/>} />
-        <Route path="/admin/dashboard" element={ <Dashboard/>} />
       </Routes>
       <Footer />
     </Router>

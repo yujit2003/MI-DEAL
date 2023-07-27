@@ -23,7 +23,7 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  width: 40vh;
+  width: 60vh;
   height: 40vh;
 }
 
@@ -171,6 +171,7 @@
 .reviews {
   display: flex;
   overflow: auto;
+  justify-content:center;
 }
 
 .reviewCard {
@@ -272,6 +273,11 @@
 
   .detailsBlock-4 > p {
     font: 300 1.8vmax sans-serif;
+  }
+
+  .CarouselImage {
+    width: 40vh;
+    height: 40vh;
   }
 
   .submitReview {

@@ -11,7 +11,6 @@ const Profile = () => {
   const { user, loading, isAuthenticated } = useSelector((state) => state.user);
 
   useEffect(() => {
-    console.log(isAuthenticated)
     if (isAuthenticated != true || isAuthenticated == null) {
         // in version 6 we use navigate method rather than UseHistory
         navigate(`/login`, { replace: true });
@@ -26,13 +25,12 @@ const Profile = () => {
         <Fragment>
           {isAuthenticated &&
            <>
-          
           <MetaData title={`${user.name}'s Profile`} />
           <div className="profileContainer">
             <div>
               <h1>My Profile</h1>
               <img src={user.avatar.url} alt={user.name} />
-              <Link to="/me/update">Edit Profile</Link>
+              {/* <Link to="/me/update">Edit Profile</Link> */}
             </div>
             <div>
               <div>
@@ -46,10 +44,6 @@ const Profile = () => {
               <div>
                 <h4>Joined On</h4>
                 <p>{String(user.createdAt).substr(0, 10)}</p>
-              </div>
-
-              <div>
-                <Link to="/orders">My Orders</Link>
               </div>
             </div>
           </div>) 

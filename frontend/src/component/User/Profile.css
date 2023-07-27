@@ -6,7 +6,13 @@
     top: 0%;
     left: 0%;
     max-width: 100%;
-    background-color: white;
+    background-image: url(../../images/bg.png) ; 
+  
+    color: #f9fafb;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
   }
   
   .profileContainer > div {
@@ -20,7 +26,7 @@
   }
   
   .profileContainer > div:first-child > h1 {
-    color: rgba(0, 0, 0, 0.555);
+    color: rgb(253, 253, 253);
     font: 500 2.2vmax "Roboto";
     transform: translateX(-10vmax) translateY(-2vmax);
   }
@@ -30,11 +36,13 @@
     height: 20vmax;
     border-radius: 0%;
     transition: all 0.5s;
+    box-shadow: 20px 30px 30px rgba(255, 255, 255, 0.544);
+
   }
   
   .profileContainer > div:first-child > img:hover {
     transform: scale(1.05);
-    box-shadow: 1px 1px 2px rgba(0, 0,0);
+    box-shadow: 10px 10px 20px rgb(255, 255, 255);
   }
   
   .profileContainer > div:first-child > a {
@@ -49,6 +57,9 @@
     text-align: center;
     transition: all 0.5s;
   }
+  /* p{
+    color: white;
+  } */
   
   .profileContainer > div:first-child > a:hover {
     background-color: rgb(204, 78, 56);
@@ -62,12 +73,14 @@
   }
   
   .profileContainer > div:last-child > div > h4 {
-    color: black;
+    color: rgb(255, 255, 255);
+    box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.065);
+    width:20vh;
     font: 400 1.2vmax "Roboto";
   }
   
   .profileContainer > div:last-child > div > p {
-    color: rgba(0, 0, 0, 0.418);
+    color: rgb(235, 236, 228);
     font: 400 1vmax cursive;
     margin: 0.2vmax;
   }

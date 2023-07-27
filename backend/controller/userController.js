@@ -20,10 +20,6 @@ exports.registerUser = catchAsyncErrors(async(req,res,next) => {
     
     
     const {name, email, password} = req.body;
-    console.log(myCloud.public_id)
-    console.log(name);
-    console.log(email);
-    console.log(password);
 
     const user = await User.create({
         name,email, password,

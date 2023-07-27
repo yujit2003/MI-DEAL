@@ -6,12 +6,8 @@
 //    jo export krna hai use exports ke baad likh na hai
 //   creating a product ---> ADMIN  
     exports.createProduct = catchAsyncError(async(req, res) => {
-        console.log("inside the create product")
-
         req.body.user = req.user.id;
-
         const product = await Product.create(req.body);
-           console.log("inside create prodduct")
         res.status(201).json({
             Status: true,
             product
