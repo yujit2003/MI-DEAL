@@ -1,11 +1,10 @@
 # MI-DEAL
 
 ### Website Link -> https://mideall.onrender.com/
-• Created a React web app for college students, enabling easy item buying and selling.
-• Implemented features such as product rating, filters, search, comments and add to cart functionality for a seamless shopping experience.
-• Included a secure login/registration system with admin privileges to manage products.
-• Ensured security with JWT token-based authentication and Backend powered by Node.js and Express.js, seamlessly linked to 
- MongoDB for efficient data storage.
+#### • Created a React web app for college students, enabling easy item buying and selling.
+#### • Implemented features such as product rating, filters, search, comments and add to cart functionality for a seamless shopping experience.
+#### • Included a secure login/registration system with admin privileges to manage products.
+#### • Ensured security with JWT token-based authentication and Backend powered by Node.js and Express.js, seamlessly linked to MongoDB for efficient data storage.
 
 ### VIDEO DEMO -> `https://drive.google.com/file/d/1lblzTqrFMFwl8cJ_PfXLYbajvwONn1oV/view?usp=sharing`
 
