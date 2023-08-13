@@ -1,27 +1,20 @@
 # MI-DEAL
 this is a ful stack functional e commerce website to find your own goods it is created using react and the backend work is done with nodejs and expressjs
 
-# VIDEO DEMO -> 
+# VIDEO DEMO -> `https://drive.google.com/file/d/1lblzTqrFMFwl8cJ_PfXLYbajvwONn1oV/view?usp=sharing`
 
-Uploading vsdc-sr 2023-08-14 02-22-37.mp4…
 
 
 
 # Getting Started with MIDEAL ? 
+# In the project directory, you can run:
 
-
-#In the project directory, you can run:
-
-##for frontend -> 
-
+## for frontend -> 
 ### `1. npm install`
-
 ### `2. npm start`
 
-##for backend -> 
-
+## for Backend -> 
 ### `1. npm install`
-
 ### `2. npm start`
 
 Runs the app in the development mode.\
